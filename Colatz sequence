@@ -1,0 +1,29 @@
+def collatz_sequence():
+    try:
+        num = int(input("Enter a positive integer: "))
+        
+        if num <= 0:
+            print("Please enter a positive integer.")
+            return collatz_sequence()
+            
+        sequence = [num]
+        steps = 0
+        
+        while num != 1:
+            if num % 2 == 0:
+                num //= 2
+                
+            else:
+                num = num * 3 + 1
+                
+            sequence.append(num)
+            steps += 1
+            
+        print("Sequence:", sequence)
+        print(f"It took {steps} steps to reach 1.")
+        
+    except ValueError:
+        print("Invalid input. Please enter a positive integer.")
+        collatz_sequence()
+
+collatz_sequence()
